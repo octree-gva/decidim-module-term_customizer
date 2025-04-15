@@ -14,6 +14,7 @@ module Decidim
           enforce_permission_to :update, :organization
 
           TermCustomizer.loader.clear_cache
+          Rails.cache.clear
           flash[:notice] = I18n.t("caches.clear.success", scope: "decidim.term_customizer.admin")
 
           redirect_to translation_sets_path

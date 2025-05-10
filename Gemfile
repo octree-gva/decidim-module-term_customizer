@@ -20,18 +20,22 @@ gem "puma", ">= 5.6.2"
 
 gem "faker", "~> 3.2"
 
+# concurrent-ruby v1.3.5 has removed the dependency on logger
+gem "concurrent-ruby", "1.3.4"
+
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
   gem "dalli", "~> 2.7", ">= 2.7.10" # For testing MemCacheStore
   gem "decidim-dev", DECIDIM_VERSION
-  gem "rubocop-performance", "~> 1.6.0"
+  gem "decidim-participatory_processes", DECIDIM_VERSION
+  gem "decidim-proposals", DECIDIM_VERSION
+
+  gem "rubocop-performance", "~> 1.23.1"
 end
 
 group :development do
   gem "letter_opener_web", "~> 2.0"
   gem "listen", "~> 3.1"
   gem "rubocop-faker"
-  gem "spring", "~> 2.0"
-  gem "spring-watcher-listen", "~> 2.0"
   gem "web-console", "~> 4.2"
 end
